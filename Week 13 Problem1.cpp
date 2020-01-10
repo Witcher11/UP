@@ -119,3 +119,4 @@ int main()
           }  return 0;
     }
 //Problemi pri testove:   ignorira mi purvata bukva i ot tam ne pravi proverkata za drugite neshta
+//ako chisloto na kolichestvoto e <10 me kara da vuveda oshte edin put tova chislo na prazen red za da produlji
