@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 using namespace std;
 class Product
 {
@@ -7,50 +8,35 @@ private:
     int kolichestvo;
     double Cena;
 public:
-
-
-    string GetImeProduct(string neshto)
+    string GetImeProduct()
     {
-        neshto=ImeProduct;
+        return ImeProduct;
     }
 
-
-    int GetKolichestvo(int value)
+    int GetKolichestvo()
     {
-        value=kolichestvo;
-
+        return kolichestvo;
     }
-    double GetCena(double value)
+    double GetCena()
     {
-        value=Cena;
-
+        return Cena;
     }
 
     void SetImeProduct(string neshto)
     {
-
-        neshto=ImeProduct;
+        ImeProduct=neshto;
     }
 
     void SetKolichestvo(int value)
     {
-
-
         kolichestvo=value;
     }
 
     void SetCena(double value)
     {
-
-
         Cena=value;
-
-
     }
 };
-
-
-
 
 int main()
 {
@@ -69,43 +55,67 @@ int main()
 
 
         cout<<"vuvedi kolichestvo koeto baba iska: ";
-        cin.ignore();
+          cin.ignore();
         cin>>broi;
         PenkaNeshta[i].SetKolichestvo(broi);
 
 
         cout<<"vuvedi cena koqto baba iska " ;
-
+        //cin.ignore();
         cin>>cena;
         PenkaNeshta[i].SetCena(cena);
 
-
+        cout<<endl;
     }
 
 
     Product Magazin[3];
-     for(int i=0; i<3; i++)
+    for(int i=0; i<3; i++)
     {
-        cout<<"vuvedi ime na produkta koito ima ";
+        cout<<"vuvedi ime na produkta koito ima v magazina ";
 
         cin.ignore();
         getline(cin,produkt);
-        PenkaNeshta[i].SetImeProduct(produkt);
+        Magazin[i].SetImeProduct(produkt);
+
 
 
         cout<<"vuvedi kolichestvo v magazina : ";
-        cin.ignore();
+         cin.ignore();
         cin>>broi;
-        PenkaNeshta[i].SetKolichestvo(broi);
+        Magazin[i].SetKolichestvo(broi);
 
 
         cout<<"vuvedi cena v magazina " ;
-
+        //cin.ignore();
         cin>>cena;
-        PenkaNeshta[i].SetCena(cena);
-
-
+        Magazin[i].SetCena(cena);
+        cout<<endl;
     }
 
-    return 0;
-}
+    for(int i=0; i<3; i++)
+    {
+        if(PenkaNeshta[i].GetImeProduct()== Magazin[i].GetImeProduct())
+        {
+            cout<<"ima "<<Magazin[i].GetImeProduct()<<" v magazina";
+
+
+
+                if(PenkaNeshta[i].GetKolichestvo()<=Magazin[i].GetKolichestvo()){
+                cout<<" is sa dostatuchno "<<Magazin[i].GetImeProduct()<<endl;
+
+
+                            if(PenkaNeshta[i].GetCena()>=Magazin[i].GetCena()){
+                                cout<<" ,za baba e izgodno";}
+                                else
+                                    cout<<" ama sa mnogo pari";
+
+                }
+                else
+                        cout<<" ama ne sa dostatuchno";
+        }
+        else
+            cout<<"nqma "<<PenkaNeshta[i].GetImeProduct()<<" v magazina i baba shte e gladna "<<endl;
+          }  return 0;
+    }
+//Problemi pri testove:   ignorira mi purvata bukva i ot tam ne pravi proverkata za drugite neshta
